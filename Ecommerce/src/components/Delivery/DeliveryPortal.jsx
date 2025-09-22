@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
 
+// Base URL for API (fallbacks to localhost if env var is missing)
+// `.replace(/\/$/, "")` ensures no trailing slash
 const API_BASE = (import.meta.env.VITE_BASE_URL || "http://localhost:8080/api").replace(/\/$/, "");
 
 export default function DeliveryPortal() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
+    // Logged-in user info from localStorage
   const userInfo = JSON.parse(localStorage.getItem("user_info") || "null");
   
   // Get cart count from localStorage
@@ -19,6 +22,9 @@ export default function DeliveryPortal() {
     }
   };
 
+  // Fetch all orders and filter them:
+  // - Show unassigned orders
+  // - Show orders assigned to this delivery user
   const fetchOrders = async () => {
     if (!userInfo) return;
     setLoading(true);
