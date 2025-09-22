@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Products.css";
 import Navbar from "../../Navbar/Navbar";
 
+// Base URL for backend API (from Vite environment variable)
+
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 class Products extends Component {
   state = {
@@ -21,6 +23,8 @@ class Products extends Component {
     selectedCategory: null,
   };
 
+  // Fetch categories from backend
+
   fetchCategories = async () => {
     try {
       const res = await fetch(`${BASE_URL}/categories`);
@@ -30,12 +34,13 @@ class Products extends Component {
       console.error("Error fetching categories:", err);
     }
   };
+  // Runs when component mounts (fetch products & categories)
 
   componentDidMount() {
     this.fetchProducts();
     this.fetchCategories();
   }
-
+  // Fetch products from backend
   fetchProducts = async () => {
     try {
       const res = await fetch(`${BASE_URL}/products`);
@@ -45,7 +50,7 @@ class Products extends Component {
       console.error(err);
     }
   };
-
+  // Upload image to Cloudinary
   handleFileSelect = (e) => {
     const file = e.target.files[0];
     if (file) this.uploadToCloudinary(file);
@@ -77,7 +82,7 @@ class Products extends Component {
       this.setState({ uploading: false });
     }
   };
-
+  // Handle input changes for form
   handleChange = (e) => {
     this.setState({
       formData: { ...this.state.formData, [e.target.name]: e.target.value },
