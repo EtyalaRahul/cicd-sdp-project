@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Categories.css";
 import Navbar from "../../Navbar/Navbar";
 
+// Backend API base URL from environment variable
+
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 class Categories extends Component {
@@ -17,10 +19,11 @@ class Categories extends Component {
     editingCategory: null,
   };
 
+  // Fetch categories once component mounts
   componentDidMount() {
     this.fetchCategories();
   }
-
+  // Fetch all categories from backend
   fetchCategories = async () => {
     try {
       const res = await fetch(`${BASE_URL}/categories`);
@@ -30,7 +33,7 @@ class Categories extends Component {
       console.error("Error fetching categories:", err);
     }
   };
-
+// Update form state when input fields change
   handleChange = (e) => {
     this.setState({
       formData: { ...this.state.formData, [e.target.name]: e.target.value },
@@ -61,6 +64,7 @@ class Categories extends Component {
       console.error("Error saving category:", err);
     }
   };
+  // Prefill form for editing an existing category
 
   handleEdit = (category) => {
     this.setState({ 
