@@ -19,8 +19,8 @@ public class SwaggerConfig {
                         .version("1.0.0")
                         .contact(new Contact()
                                 .name("Developer Team")
-                                .email("demo@example.com")
-                                .url("Git Repo URL"))
+                                .email("rahuletyala@gmail.com")
+                                .url("https://github.com/EtyalaRahul/cicd-sdp-project.git"))
                         .license(new License()
                                 .name("Apache 2.0")
                                 .url("http://springdoc.org")));
