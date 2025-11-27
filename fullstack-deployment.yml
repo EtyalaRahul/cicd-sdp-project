@@ -71,7 +71,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: rahuletyala/sdp-endsem-backend:latest  # <-- change this
+          image: rahuletyala/sdp-kubernetes-backend:latest  # <-- change this
           ports:
             - containerPort: 2000
 ---
