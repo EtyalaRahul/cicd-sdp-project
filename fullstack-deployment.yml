@@ -110,7 +110,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: rahuletyala/sdp-endsem-frontend:latest  # <-- change this
+          image: rahuletyala/sdp-kubernetes-frontend:latest  # <-- change this
           ports:
             - containerPort: 80
           # env:

@@ -32,7 +32,7 @@ jobs:
           context: ./Ecommerce-backend/fooddelivery
           file: ./Ecommerce-backend/fooddelivery/backend.Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sdp-endsem-backend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sdp-kubernetes-backend:latest
 
       # Step 5 — Build & Push Frontend Image
       - name: Build and Push Frontend Image
@@ -41,4 +41,4 @@ jobs:
           context: ./Ecommerce
           file: ./Ecommerce/frontend.Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sdp-endsem-frontend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sdp-kubernetes-frontend:latest
